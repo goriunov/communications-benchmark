@@ -37,15 +37,15 @@ function uwsTest() {
 
 function ipcSocketTest() {
     numberOfRun--
-    let IPCProcess = child_process.fork(__dirname + '/ipc/server.js');
+    let IPCProcess = child_process.fork(__dirname + '/ipc-socket/server.js');
     IPCProcess.on('message', (message) => {
         ipcSocketTestResults.push(message);
         if (numberOfRun) {
             ipcSocketTest();
         } else {
             console.log('IPC: ', ipcTestResults)
-            console.log('IPC Socket: ', ipcTestResults)
             console.log('UWS: ', uwsTestResult)  
+            console.log('IPC Socket: ', ipcSocketTestResults)
         }
 
     })

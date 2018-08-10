@@ -57,7 +57,7 @@ server.on('error', (err) => {
 });
 
 server.listen(3000, () => {
-    console.log("IPC Server is running", ' pid: ', process.pid);
+    console.log("IPC Socket Server is running", ' pid: ', process.pid);
     for (let i = 0; i < 10; i++) {
         child_process.fork(__dirname + '/client.js')
     }
